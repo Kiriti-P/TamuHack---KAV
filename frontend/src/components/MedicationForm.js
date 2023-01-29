@@ -64,7 +64,7 @@ const MedicationForm = () => {
         type="number" 
         onChange={(e) => settimes_taken(e.target.value)} 
         value={times_taken} 
-        className={emptyFields.includes('times') ? 'error' : ''}
+        className={emptyFields.includes('times_taken') ? 'error' : ''}
       />
 
       <button>Add Medication</button>
