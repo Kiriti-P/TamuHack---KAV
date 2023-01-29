@@ -25,9 +25,16 @@ header .container {
 header a {
   color: #333;
   text-decoration: none;
+  
+}
+header a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
 }
 header a:hover {
-  font-size: 1.2em;
+  color: var(--primary);
+  transform: scale(1.2);
 }
 .pages {
   max-width: 1400px;
@@ -125,3 +132,20 @@ form button:hover {
   }
 }
 
+form {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 20px 10px auto;
+}
+
+
+
+form input {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+  width: 100%;
+}
