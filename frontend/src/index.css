@@ -124,4 +124,6 @@ form button:hover {
     opacity: 1;
   }
 }
-
+input.error {
+  border: 1px solid var(--error);
+}
