@@ -8,6 +8,7 @@ const MedicationForm = () => {
   const [dosage, setDosage] = useState('')
   const [times_taken, settimes_taken] = useState('')
   const [error, setError] = useState(null)
+  const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -25,12 +26,14 @@ const MedicationForm = () => {
 
     if (!response.ok) {
       setError(json.error)
+      setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
       setError(null)
       setTitle('')
       setDosage('')
       settimes_taken('')
+      setEmptyFields([])
       console.log('new medication added:', json)
       dispatch({type: 'CREATE_MEDICATION', payload: json})
     }
@@ -45,6 +48,7 @@ const MedicationForm = () => {
         type="text" 
         onChange={(e) => setTitle(e.target.value)} 
         value={title}
+        className={emptyFields.includes('title') ? 'error' : ''}
       />
 
       <label>Dosage (in g):</label>
@@ -52,6 +56,7 @@ const MedicationForm = () => {
         type="number" 
         onChange={(e) => setDosage(e.target.value)} 
         value={dosage}
+        className={emptyFields.includes('dosage') ? 'error' : ''}
       />
 
       <label>Times Taken Per Day:</label>
@@ -59,6 +64,7 @@ const MedicationForm = () => {
         type="number" 
         onChange={(e) => settimes_taken(e.target.value)} 
         value={times_taken} 
+        className={emptyFields.includes('times') ? 'error' : ''}
       />
 
       <button>Add Medication</button>
