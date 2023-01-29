@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useMedicationsContext } from "../hooks/useMedicationsContext" 
 
 // components
 import MedicationDetails from "../components/MedicationDetails";
 import MedicationForm from "../components/MedicationForm";
 
 const Home = () => {
-  const [medications, setMedications] = useState(null);
+  const {medications, dispatch} = useMedicationsContext()
 
   useEffect(() => {
     const fetchMedications = async () => {
       const response = await fetch("/api/medications");
       const json = await response.json();
+
       if (response.ok) {
-        setMedications(json);
+        dispatch({type: 'SET_MEDICATIONS', payload: json})
       }
     };
 
