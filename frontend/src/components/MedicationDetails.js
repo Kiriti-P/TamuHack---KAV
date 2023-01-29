@@ -25,7 +25,7 @@ const MedicationDetails = ({ medication }) => {
         <strong>Times taken: </strong>
         {medication.times_taken}
       </p>
-      <span onClick={handleClick}>delete</span>
+      <span className = "gg-trash" onClick={handleClick}></span>
     </div>
   );
 };
