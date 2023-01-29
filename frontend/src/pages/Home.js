@@ -4,15 +4,14 @@ import { useEffect, useState } from "react"
 import MedicationDetails from '../components/MedicationDetails'
 
 const Home = () => {
-    const [medication, dosage] = useState(null)
+    const [medications, setMedications] = useState(null)
 
     useEffect(() => {
         const fetchMedications = async () => {
             const response = await fetch('/api/medications')
             const json = await response.json()
-
             if (response.ok) {
-                dosage(json)
+                setMedications(json)
             }
         }
 
@@ -23,7 +22,7 @@ const Home = () => {
         <div className="home">
             <div className="medications">
                 {medications && medications.map((medication) => (
-                    <MedicationDetails key={medication._id} medication={medication}/>
+                    <MedicationDetails medication={medication} key={medication._id} />
                 ))}
             </div>
         </div>
