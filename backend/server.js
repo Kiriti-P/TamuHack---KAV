@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use("/api/medications", medicationRoutes);
+app.use("/api/medications", medicationRoutes);s
 
 // connect to DB
 mongoose
