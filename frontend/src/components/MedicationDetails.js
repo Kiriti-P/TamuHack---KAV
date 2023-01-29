@@ -1,4 +1,5 @@
 import { useMedicationsContext } from "../hooks/useMedicationsContext";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const MedicationDetails = ({ medication }) => {
   const { dispatch } = useMedicationsContext();
@@ -25,7 +26,7 @@ const MedicationDetails = ({ medication }) => {
         <strong>Times taken: </strong>
         {medication.times_taken}
       </p>
-      <span onClick={handleClick}>delete</span>
+      <DeleteIcon className="trash-icon" onClick={handleClick}></DeleteIcon>
     </div>
   );
 };
