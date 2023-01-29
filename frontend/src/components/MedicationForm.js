@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { useMedicationsContext } from "../hooks/useMedicationsContext" 
 
 const MedicationForm = () => {
+  const { dispatch } = useMedicationsContext()
+
   const [title, setTitle] = useState('')
   const [dosage, setDosage] = useState('')
   const [times_taken, settimes_taken] = useState('')
@@ -29,8 +32,8 @@ const MedicationForm = () => {
       setDosage('')
       settimes_taken('')
       console.log('new medication added:', json)
+      dispatch({type: 'CREATE_MEDICATION', payload: json})
     }
-
   }
 
   return (
