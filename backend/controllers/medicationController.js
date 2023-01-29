@@ -27,6 +27,23 @@ const getMedication = async (req, res) => {
 const createMedication = async (req, res) => {
   const { title, dosage, times_taken } = req.body;
 
+  let emptyFields = [];
+
+  if (!title) {
+    emptyFields.push("title");
+  }
+  if (!dosage) {
+    emptyFields.push("dosage");
+  }
+  if (!times_taken) {
+    emptyFields.push("times_taken");
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all the fields", emptyFields });
+  }
+
   // add doc to db
   try {
     const medication = await Medication.create({ title, dosage, times_taken });
