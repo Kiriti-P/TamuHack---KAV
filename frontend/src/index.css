@@ -26,6 +26,9 @@ header a {
   color: #333;
   text-decoration: none;
 }
+header a:hover {
+  font-size: 1.2em;
+}
 .pages {
   max-width: 1400px;
   padding: 20px;
@@ -96,6 +99,29 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
-input.error {
-  border: 1px solid var(--error);
+
+form button:hover {
+  background: #179269; /* Change background color on hover */
+  transform: scale(1.1); /* Scale up button on hover */
 }
+
+/* Add hover effect to medication details section */
+.medication-details:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); /* Add a deeper shadow on hover */
+}
+
+.medication-details {
+  animation: slide-in 0.5s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
